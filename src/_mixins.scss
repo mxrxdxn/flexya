@@ -1,0 +1,74 @@
+/**
+ * Styles in this mixin will only apply for the given breakpoint and above.
+ */
+@mixin breakpoint-up($name: "mobile") {
+    $min: breakpoint-min($name);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/**
+ * Styles in this mixin will only apply for the given breakpoint and below.
+ */
+@mixin breakpoint-down($name: "large-desktop") {
+    $max: breakpoint-max($name);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/**
+ * Styles in this mixin will only apply for the given breakpoint.
+ */
+@mixin breakpoint-only($name: "mobile") {
+    $min:  breakpoint-min($name);
+    $next: breakpoint-next($name);
+    $max:  breakpoint-max($next);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include breakpoint-up($name) {
+            @content;
+        }
+    } @else if $min == null {
+        @include breakpoint-down($next) {
+            @content;
+        }
+    }
+}
+
+/**
+ * Styles in this mixin will only apply between the given lower and upper breakpoints.
+ */
+@mixin breakpoint-between($lower, $upper) {
+    $min: breakpoint-min($lower);
+    $max: breakpoint-max($upper);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include breakpoint-up($lower) {
+            @content;
+        }
+    } @else if $min == null {
+        @include breakpoint-down($upper) {
+            @content;
+        }
+    }
+}

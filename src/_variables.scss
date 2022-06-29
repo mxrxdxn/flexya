@@ -1,0 +1,15 @@
+// Breakpoints
+$breakpoints: (
+    "mobile":           0,
+    "large-mobile":     576px,
+    "tablet":           768px,
+    "landscape-tablet": 992px,
+    "desktop":          1200px,
+    "large-desktop":    1400px
+) !default;
+
+// How many columns to put into .row and .grid
+$columnCount: 12 !default;
+
+// Don't need the grid column support? Turn it off to save on file size.
+$enableGrid:  false !default;

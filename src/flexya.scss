@@ -1,0 +1,229 @@
+@use "sass:math";
+@use "sass:map";
+
+@import "src/variables";
+@import "src/functions";
+@import "src/mixins";
+
+/**
+ * Containers
+ * ============================================================================
+ */
+.container {
+    margin-left:  auto;
+    margin-right: auto;
+    width:        90%;
+
+    @include breakpoint-up("large-mobile") {
+        max-width: math.div(map.get($breakpoints, "large-mobile"), 100) * 90;
+    }
+
+    @include breakpoint-up("tablet") {
+        max-width: math.div(map.get($breakpoints, "tablet"), 100) * 90;
+    }
+
+    @include breakpoint-up("landscape-tablet") {
+        max-width: math.div(map.get($breakpoints, "landscape-tablet"), 100) * 90;
+    }
+
+    @include breakpoint-up("desktop") {
+        max-width: math.div(map.get($breakpoints, "desktop"), 100) * 90;
+    }
+
+    @include breakpoint-up("large-desktop") {
+        max-width: math.div(map.get($breakpoints, "large-desktop"), 100) * 90;
+    }
+}
+
+.container-fluid {
+    margin-left:  auto;
+    margin-right: auto;
+    width:        90%;
+}
+
+.container-max {
+    margin-left:  auto;
+    margin-right: auto;
+    width:        100%;
+}
+
+/**
+ * Row (Flex)
+ * ============================================================================
+ */
+
+.row {
+    position:       relative;
+    display:        flex;
+    flex-direction: row;
+    flex-wrap:      wrap;
+
+    .c {
+        flex: 1 0 0%;
+    }
+
+    @for $i from 1 through $columnCount {
+        $width: math.div(100%, $columnCount) * $i;
+
+        .c-#{$i} {
+            flex:  0 0 auto;
+            width: $width;
+        }
+
+        .o-#{$i} {
+            margin-left: $width;
+        }
+    }
+
+    @include breakpoint-up("large-mobile") {
+        .c-lm {
+            flex: 1 0 0%;
+        }
+
+        @for $i from 1 through $columnCount {
+            $width: math.div(100%, $columnCount) * $i;
+
+            .c-lm-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
+
+            .o-lm-#{$i} {
+                margin-left: $width;
+            }
+        }
+    }
+
+    @include breakpoint-up("tablet") {
+        .c-t {
+            flex: 1 0 0%;
+        }
+
+        @for $i from 1 through $columnCount {
+            $width: math.div(100%, $columnCount) * $i;
+
+            .c-t-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
+
+            .o-t-#{$i} {
+                margin-left: $width;
+            }
+        }
+    }
+
+    @include breakpoint-up("landscape-tablet") {
+        .c-lt {
+            flex: 1 0 0%;
+        }
+
+        @for $i from 1 through $columnCount {
+            $width: math.div(100%, $columnCount) * $i;
+
+            .c-lt-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
+
+            .o-lt-#{$i} {
+                margin-left: $width;
+            }
+        }
+    }
+
+    @include breakpoint-up("desktop") {
+        .c-d {
+            flex: 1 0 0%;
+        }
+
+        @for $i from 1 through $columnCount {
+            $width: math.div(100%, $columnCount) * $i;
+
+            .c-d-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
+
+            .o-d-#{$i} {
+                margin-left: $width;
+            }
+        }
+    }
+
+    @include breakpoint-up("large-desktop") {
+        .c-ld {
+            flex: 1 0 0%;
+        }
+
+        @for $i from 1 through $columnCount {
+            $width: math.div(100%, $columnCount) * $i;
+
+            .c-ld-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
+
+            .o-ld-#{$i} {
+                margin-left: $width;
+            }
+        }
+    }
+}
+
+/**
+ * Grid
+ * ============================================================================
+ */
+@if $enableGrid {
+    .grid {
+        display:               grid;
+        grid-template-columns: repeat($columnCount, 1fr);
+
+        @for $i from 1 through $columnCount {
+            .c-#{$i} {
+                grid-column: span #{$i};
+            }
+        }
+
+        @include breakpoint-up("large-mobile") {
+            @for $i from 1 through $columnCount {
+                .c-lm-#{$i} {
+                    grid-column: span #{$i};
+                }
+            }
+        }
+
+        @include breakpoint-up("tablet") {
+            @for $i from 1 through $columnCount {
+                .c-t-#{$i} {
+                    grid-column: span #{$i};
+                }
+            }
+        }
+
+        @include breakpoint-up("landscape-tablet") {
+            @for $i from 1 through $columnCount {
+                .c-lt-#{$i} {
+                    grid-column: span #{$i};
+                }
+            }
+        }
+
+        @include breakpoint-up("desktop") {
+            @for $i from 1 through $columnCount {
+                .c-d-#{$i} {
+                    grid-column: span #{$i};
+                }
+            }
+        }
+
+        @include breakpoint-up("large-desktop") {
+            @for $i from 1 through $columnCount {
+                .c-ld-#{$i} {
+                    grid-column: span #{$i};
+                }
+            }
+        }
+    }
+}

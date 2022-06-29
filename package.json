@@ -1,0 +1,31 @@
+{
+  "name": "flexya",
+  "description": "Flexya is a super simple CSS grid system based on flex and heavily inspired by Bootstrap's grid system.",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "build": "mix",
+    "build:prod": "mix --production"
+  },
+  "keywords": [
+    "flex",
+    "flexy",
+    "grid",
+    "css",
+    "scss",
+    "sass",
+    "flexbox",
+    "row",
+    "container"
+  ],
+  "author": "Ron Marsden",
+  "license": "MIT",
+  "dependencies": {
+    "laravel-mix": "^6.0.49"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^12.6.0"
+  }
+}
