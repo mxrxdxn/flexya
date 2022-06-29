@@ -1,0 +1,20 @@
+@use "sass:map";
+
+.row {
+    position:       relative;
+    display:        flex;
+    flex-direction: row;
+    flex-wrap:      wrap;
+
+    // Columns
+    @each $size, $options in $breakpoints {
+        @if map.get($options, "min-width") == 0 {
+            @include generate-column-classes($options)
+        } @else {
+            // Include the breakpoint check
+            @include breakpoint-up($size) {
+                @include generate-column-classes($options)
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
-/**
- * Styles in this mixin will only apply for the given breakpoint and above.
- */
+@use "sass:map";
+@use "sass:math";
+
+// Styles in this mixin will only apply for the given breakpoint and above.
 @mixin breakpoint-up($name: "mobile") {
     $min: breakpoint-min($name);
 
@@ -13,9 +14,7 @@
     }
 }
 
-/**
- * Styles in this mixin will only apply for the given breakpoint and below.
- */
+// Styles in this mixin will only apply for the given breakpoint and below.
 @mixin breakpoint-down($name: "large-desktop") {
     $max: breakpoint-max($name);
 
@@ -28,9 +27,7 @@
     }
 }
 
-/**
- * Styles in this mixin will only apply for the given breakpoint.
- */
+// Styles in this mixin will only apply for the given breakpoint.
 @mixin breakpoint-only($name: "mobile") {
     $min:  breakpoint-min($name);
     $next: breakpoint-next($name);
@@ -51,9 +48,7 @@
     }
 }
 
-/**
- * Styles in this mixin will only apply between the given lower and upper breakpoints.
- */
+// Styles in this mixin will only apply between the given lower and upper breakpoints.
 @mixin breakpoint-between($lower, $upper) {
     $min: breakpoint-min($lower);
     $max: breakpoint-max($upper);
@@ -69,6 +64,55 @@
     } @else if $min == null {
         @include breakpoint-down($upper) {
             @content;
+        }
+    }
+}
+
+@mixin generate-column-classes($options) {
+    $prefix: map.get($options, "prefix");
+
+    @if $prefix == false {
+        $prefix: "";
+    } @else {
+        $prefix: "-#{$prefix}";
+    }
+
+    // Auto column
+    .#{$columnClass}#{$prefix} {
+        flex: 1 0 auto;
+    }
+
+    // Sized columns
+    @for $i from 1 through $columnCount {
+        $width: math.div(100%, $columnCount) * $i;
+
+        .#{$columnClass}#{$prefix}-#{$i} {
+            flex:  0 0 $width;
+            //flex:  0 0 auto;
+            //width: $width;
+        }
+
+        .#{$offsetClass}#{$prefix}-#{$i} {
+            margin-left: $width;
+        }
+    }
+}
+
+@mixin generate-grid-column-classes($options) {
+    $prefix: map.get($options, "prefix");
+
+    @if $prefix == false {
+        $prefix: "";
+    } @else {
+        $prefix: "-#{$prefix}";
+    }
+
+    // Sized columns
+    @for $i from 1 through $columnCount {
+        $width: math.div(100%, $columnCount) * $i;
+
+        .#{$columnClass}#{$prefix}-#{$i} {
+            grid-column: span #{$i};
         }
     }
 }

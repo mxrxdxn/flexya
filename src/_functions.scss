@@ -1,9 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 
-/**
- * Get the previous breakpoint name.
- */
+// Get the previous breakpoint name.
 @function breakpoint-previous($name) {
     $breakpoint-names: map.keys($breakpoints);
     $n: index($breakpoint-names, $name);
@@ -15,9 +13,7 @@
     @return if($n < length($breakpoint-names), nth($breakpoint-names, $n - 1), null);
 }
 
-/**
- * Get the next breakpoint name.
- */
+// Get the next breakpoint name.
 @function breakpoint-next($name) {
     $breakpoint-names: map.keys($breakpoints);
     $n: index($breakpoint-names, $name);
@@ -29,20 +25,16 @@
     @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
-/**
- * Get the min-width value for a breakpoint.
- */
+// Get the min-width value for a breakpoint.
 @function breakpoint-min($name) {
-    $min: map.get($breakpoints, $name);
+    $min: map.get(map.get($breakpoints, $name), "min-width");
 
     @return if($min != 0, $min, null);
 }
 
-/**
- * Get the max-width value for a breakpoint.
- */
+// Get the max-width value for a breakpoint.
 @function breakpoint-max($name) {
-    $max: map.get($breakpoints, $name);
+    $max: map.get(map.get($breakpoints, $name), "min-width");
 
     @return if($max and $max > 0, $max - .01, null);
 }

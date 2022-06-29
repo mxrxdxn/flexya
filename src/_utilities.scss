@@ -1,0 +1,45 @@
+@if $enableUtilities {
+    // Justify Content
+    .justify-content-left,
+    .justify-content-start {
+        justify-content: flex-start;
+    }
+
+    .justify-content-middle,
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .justify-content-right,
+    .justify-content-end {
+        justify-content: flex-end;
+    }
+
+    .justify-content-around {
+        justify-content: space-around;
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    .justify-content-evenly {
+        justify-content: space-evenly;
+    }
+
+    // Align Items
+    .align-items-top,
+    .align-items-start {
+        align-items: flex-start;
+    }
+
+    .align-items-middle,
+    .align-items-center {
+        align-items: center;
+    }
+
+    .align-items-bottom,
+    .align-items-end {
+        align-items: flex-end;
+    }
+}

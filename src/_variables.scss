@@ -1,15 +1,56 @@
+// ============================================================================
 // Breakpoints
+// ============================================================================
+// This map controls all of the breakpoints used within Flexya. The ones we
+// include as standard should cover all bases, but you are welcome to either
+// adjust the existing breakpoints or add your own.
+// ============================================================================
 $breakpoints: (
-    "mobile":           0,
-    "large-mobile":     576px,
-    "tablet":           768px,
-    "landscape-tablet": 992px,
-    "desktop":          1200px,
-    "large-desktop":    1400px
+    "mobile":           ("min-width": 0,      "prefix": false),
+    "large-mobile":     ("min-width": 576px,  "prefix": "lm"),
+    "tablet":           ("min-width": 768px,  "prefix": "t"),
+    "landscape-tablet": ("min-width": 992px,  "prefix": "lt"),
+    "desktop":          ("min-width": 1200px, "prefix": "d"),
+    "large-desktop":    ("min-width": 1400px, "prefix": "ld")
 ) !default;
 
-// How many columns to put into .row and .grid
+// ============================================================================
+// Base column class name
+// ============================================================================
+// This is the global prefix for column class names. You can override this to
+// whatever you like and it'll update everything accordingly.
+// ============================================================================
+$columnClass: "col" !default;
+
+// ============================================================================
+// Base offset class name
+// ============================================================================
+// This is the global prefix for offset class names. You can override this to
+// whatever you like and it'll update everything accordingly.
+// ============================================================================
+$offsetClass: "offset" !default;
+
+// ============================================================================
+// Column Count
+// ============================================================================
+// You can control how many columns generate for both the flex and CSS grid
+// systems. Don't need 12 columns, or perhaps need even more? Just override
+// this value.
+// ============================================================================
 $columnCount: 12 !default;
 
+// ============================================================================
+// Enable Grid
+// ============================================================================
 // Don't need the grid column support? Turn it off to save on file size.
-$enableGrid:  false !default;
+// We leave this disabled by default as flex is usually enough.
+// ============================================================================
+$enableGrid: false !default;
+
+// ============================================================================
+// Enable Utilities
+// ============================================================================
+// We disable utilities by default, but you can add them if you need or want
+// them.
+// ============================================================================
+$enableUtilities: false !default;
