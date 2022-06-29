@@ -20,6 +20,10 @@
   ],
   "author": "Ron Marsden",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxrxdxn/flexya.git"
+  },
   "dependencies": {
     "laravel-mix": "^6.0.49"
   },
