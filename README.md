@@ -122,5 +122,5 @@ Note that CSS grid is disabled by default.
 We also bundle in some utilities (disabled by default) to make some basic flex layouts easier to achieve. You can enable then like so:
 ```scss
 // Enable utilities
-$enableUtilities: false !default;
+$enableUtilities: true;
 ```
