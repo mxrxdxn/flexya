@@ -1,15 +1,17 @@
 {
   "name": "flexya",
   "description": "Flexya is a super simple CSS grid system based on flex and heavily inspired by Bootstrap's grid system.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "webpack.mix.js",
   "scripts": {
     "build": "mix",
-    "build:prod": "mix --production"
+    "build:prod": "mix --production",
+    "watch": "mix watch"
   },
   "keywords": [
     "flex",
     "flexy",
+    "flexya",
     "grid",
     "css",
     "scss",

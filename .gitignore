@@ -1,5 +1,6 @@
 .idea
 .code
 .nova
+*.icloud
 /node_modules
 /dist/mix-manifest.json
