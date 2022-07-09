@@ -8,8 +8,10 @@
     width:        90%;
 
     @each $size, $options in $breakpoints {
-        @include breakpoint-up($size) {
-            max-width: math.div(map.get($options, "min-width"), 100) * 90;
+        @if map.get($options, "min-width") > 0 {
+            @include breakpoint-up($size) {
+                max-width: math.div(map.get($options, "min-width"), 100) * 90;
+            }
         }
     }
 }
