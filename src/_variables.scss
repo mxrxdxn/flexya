@@ -31,6 +31,14 @@ $columnClass: "col" !default;
 $offsetClass: "offset" !default;
 
 // ============================================================================
+// Base order class name
+// ============================================================================
+// This is the global prefix for order class names. You can override this to
+// whatever you like and it'll update everything accordingly.
+// ============================================================================
+$orderClass: "order" !default;
+
+// ============================================================================
 // Column Count
 // ============================================================================
 // You can control how many columns generate for both the flex and CSS grid

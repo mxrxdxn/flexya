@@ -1,0 +1,12 @@
+@use "sass:map";
+
+@each $size, $options in $breakpoints {
+    @if map.get($options, "min-width") == 0 {
+        @include generate-order-classes($options)
+    } @else {
+        // Include the breakpoint check
+        @include breakpoint-up($size) {
+            @include generate-order-classes($options)
+        }
+    }
+}

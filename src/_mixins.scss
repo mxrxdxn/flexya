@@ -88,8 +88,6 @@
 
         .#{$columnClass}#{$prefix}-#{$i} {
             flex:  0 0 $width;
-            //flex:  0 0 auto;
-            //width: $width;
         }
 
         .#{$offsetClass}#{$prefix}-#{$i} {
@@ -113,6 +111,25 @@
 
         .#{$columnClass}#{$prefix}-#{$i} {
             grid-column: span #{$i};
+        }
+    }
+}
+
+@mixin generate-order-classes($options) {
+    $prefix: map.get($options, "prefix");
+
+    @if $prefix == false {
+        $prefix: "";
+    } @else {
+        $prefix: "-#{$prefix}";
+    }
+
+    // Orders
+    @for $i from 1 through $columnCount {
+        $width: math.div(100%, $columnCount) * $i;
+
+        .#{$orderClass}#{$prefix}-#{$i} {
+            order: $i;
         }
     }
 }
