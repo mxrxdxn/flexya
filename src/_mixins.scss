@@ -82,6 +82,11 @@
         flex: 1 0 auto;
     }
 
+    // Auto-size column
+    .#{$columnClass}#{$prefix}-auto {
+        flex: 0 0 auto;
+    }
+
     // Sized columns
     @for $i from 1 through $columnCount {
         $width: math.div(100%, $columnCount) * $i;
