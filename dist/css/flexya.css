@@ -52,6 +52,7 @@
 }
 .row .col-auto {
   flex: 0 0 auto;
+  width: auto;
 }
 .row .col-1 {
   flex: 0 0 auto;
@@ -143,6 +144,7 @@
   }
   .row .col-lm-auto {
     flex: 0 0 auto;
+    width: auto;
   }
   .row .col-lm-1 {
     flex: 0 0 auto;
@@ -235,6 +237,7 @@
   }
   .row .col-t-auto {
     flex: 0 0 auto;
+    width: auto;
   }
   .row .col-t-1 {
     flex: 0 0 auto;
@@ -327,6 +330,7 @@
   }
   .row .col-lt-auto {
     flex: 0 0 auto;
+    width: auto;
   }
   .row .col-lt-1 {
     flex: 0 0 auto;
@@ -419,6 +423,7 @@
   }
   .row .col-d-auto {
     flex: 0 0 auto;
+    width: auto;
   }
   .row .col-d-1 {
     flex: 0 0 auto;
@@ -511,6 +516,7 @@
   }
   .row .col-ld-auto {
     flex: 0 0 auto;
+    width: auto;
   }
   .row .col-ld-1 {
     flex: 0 0 auto;
