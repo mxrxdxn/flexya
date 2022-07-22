@@ -52,8 +52,8 @@ $columnCount: 12 !default;
 // ============================================================================
 // You can enable gutters here.
 // ============================================================================
-$enableGutters: false;
-$gutterWidth:   1.5rem;
+$enableGutters: false !default;
+$gutterWidth:   1.5rem !default;
 
 // ============================================================================
 // Enable Grid
