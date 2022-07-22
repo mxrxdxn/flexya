@@ -92,7 +92,8 @@
         $width: math.div(100%, $columnCount) * $i;
 
         .#{$columnClass}#{$prefix}-#{$i} {
-            flex:  0 0 $width;
+            flex:  0 0 auto;
+            width: $width;
         }
 
         .#{$offsetClass}#{$prefix}-#{$i} {
