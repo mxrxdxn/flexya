@@ -79,7 +79,7 @@
 
     // Auto column
     .#{$columnClass}#{$prefix} {
-        flex: 1 0 auto;
+        flex: 1 0 0%;
     }
 
     // Auto-size column

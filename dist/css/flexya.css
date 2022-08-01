@@ -48,7 +48,7 @@
   flex-wrap: wrap;
 }
 .row .col {
-  flex: 1 0 auto;
+  flex: 1 0 0%;
 }
 .row .col-auto {
   flex: 0 0 auto;
@@ -140,7 +140,7 @@
 }
 @media (min-width: 576px) {
   .row .col-lm {
-    flex: 1 0 auto;
+    flex: 1 0 0%;
   }
   .row .col-lm-auto {
     flex: 0 0 auto;
@@ -233,7 +233,7 @@
 }
 @media (min-width: 768px) {
   .row .col-t {
-    flex: 1 0 auto;
+    flex: 1 0 0%;
   }
   .row .col-t-auto {
     flex: 0 0 auto;
@@ -326,7 +326,7 @@
 }
 @media (min-width: 992px) {
   .row .col-lt {
-    flex: 1 0 auto;
+    flex: 1 0 0%;
   }
   .row .col-lt-auto {
     flex: 0 0 auto;
@@ -419,7 +419,7 @@
 }
 @media (min-width: 1200px) {
   .row .col-d {
-    flex: 1 0 auto;
+    flex: 1 0 0%;
   }
   .row .col-d-auto {
     flex: 0 0 auto;
@@ -512,7 +512,7 @@
 }
 @media (min-width: 1400px) {
   .row .col-ld {
-    flex: 1 0 auto;
+    flex: 1 0 0%;
   }
   .row .col-ld-auto {
     flex: 0 0 auto;
