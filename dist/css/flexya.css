@@ -29,6 +29,46 @@
   }
 }
 
+@media (min-width: 576px) {
+  .container-lm {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 518.4px;
+  }
+}
+@media (min-width: 768px) {
+  .container-t {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 691.2px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lt {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 892.8px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-d {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1080px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-ld {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1260px;
+  }
+}
 .container-fluid {
   margin-left: auto;
   margin-right: auto;

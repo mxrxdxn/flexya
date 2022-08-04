@@ -16,6 +16,22 @@
     }
 }
 
+// Breakpoint-specific containers
+@each $size, $options in $breakpoints {
+    @if map.get($options, "min-width") > 0 {
+        @include breakpoint-up($size) {
+            $prefix: map.get($options, "prefix");
+
+            .container-#{$prefix} {
+                margin-left:  auto;
+                margin-right: auto;
+                width:        90%;
+                max-width:    math.div(map.get($options, "min-width"), 100) * 90;
+            }
+        }
+    }
+}
+
 .container-fluid {
     margin-left:  auto;
     margin-right: auto;
