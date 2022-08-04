@@ -36,5 +36,5 @@
 @function breakpoint-max($name) {
     $max: map.get(map.get($breakpoints, $name), "min-width");
 
-    @return if($max and $max > 0, $max - .01, null);
+    @return if($max and $max > 0, $max - .02, null);
 }
