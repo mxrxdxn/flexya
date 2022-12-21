@@ -83,6 +83,87 @@ Translates into:
     }
 }
 ```
+### generate-utility($className)
+A mixin that generates utility classes based on your configured breakpoints.
+```scss
+@include generate-utility(".margin-bottom-0") {
+    margin-bottom: 0;
+}
+```
+Translates into:
+```css
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+    .margin-bottom-0-lm {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 768px) {
+    .margin-bottom-0-t {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 992px) {
+    .margin-bottom-0-lt {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .margin-bottom-0-d {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1400px) {
+    .margin-bottom-0-ld {
+        margin-bottom: 0;
+    }
+}
+```
+You can also pass a list of CSS selectors as the first argument in order to generate the utility for multiple selectors.
+```scss
+@include generate-utility(("margin-bottom-0", "mb-0")) {
+    margin-bottom: 0;
+}
+```
+Translates into:
+```css
+.margin-bottom-0, .mb-0 {
+    margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+    .margin-bottom-0-lm, .mb-0-lm {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .margin-bottom-0-t, .mb-0-t {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-bottom-0-lt, .mb-0-lt {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .margin-bottom-0-d, .mb-0-d {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1400px) {
+    .margin-bottom-0-ld, .mb-0-ld {
+        margin-bottom: 0;
+    }
+}
+```
 
 ## Customization
 ### Changing the breakpoints
@@ -119,8 +200,22 @@ $enableGrid: true;
 ```
 Note that CSS grid is disabled by default.
 ### Enable utilities
-We also bundle in some utilities (disabled by default) to make some basic flex layouts easier to achieve. You can enable then like so:
+We also bundle in some utilities (disabled by default to reduce file size) to make some basic flex layouts easier to achieve. You can enable then like so:
 ```scss
 // Enable utilities
 $enableUtilities: true;
 ```
+The following utilities are available when utilities are enabled:
+
+| Class Name(s)                                        | Output                            |
+|------------------------------------------------------|-----------------------------------|
+| `.justify-content-left`, `.justify-content-start`    | `justify-content: flex-start;`    |
+| `.justify-content-middle`, `.justify-content-center` | `justify-content: center;`        |
+| `.justify-content-right`, `.justify-content-end`     | `justify-content: flex-end;`      |
+| `.justify-content-around`                            | `justify-content: space-around;`  |
+| `.justify-content-between`                           | `justify-content: space-between;` |
+| `.justify-content-evenly`                            | `justify-content: space-evenly;`  |
+| `.align-items-top`, `.align-items-start`             | `align-items: flex-start;`        |
+| `.align-items-middle`, `.align-items-center`         | `align-items: center;`            |
+| `.align-items-bottom`, `.align-items-end`            | `align-items: flex-end;`          |
+
