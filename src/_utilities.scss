@@ -1,39 +1,31 @@
-@if $enableUtilities {
-    // Justify Content
-    @include generate-utility((".justify-content-left", ".justify-content-start")) {
-        justify-content: flex-start;
-    }
+@use "sass:map";
 
-    @include generate-utility((".justify-content-middle", ".justify-content-center")) {
-        justify-content: center;
-    }
+// Breakpoint columns
+@each $size, $options in $breakpoints {
+    @if map.get($options, min-width) > 0 {
+        @include breakpoint-up($size) {
+            @each $utility, $utilityOptions in $utilities {
+                $className: map.get($utilityOptions, class);
+                $propertyName: map.get($utilityOptions, property);
+                $prefix: map.get($options, prefix);
 
-    @include generate-utility((".justify-content-right", ".justify-content-end")) {
-        justify-content: flex-end;
-    }
+                @each $classSuffix, $value in map.get($utilityOptions, values) {
+                    .#{$className}-#{$prefix}-#{$classSuffix} {
+                        #{$propertyName}: $value;
+                    }
+                }
+            }
+        }
+    } @else {
+        @each $utility, $utilityOptions in $utilities {
+            $className: map.get($utilityOptions, class);
+            $propertyName: map.get($utilityOptions, property);
 
-    @include generate-utility(".justify-content-around") {
-        justify-content: space-around;
-    }
-
-    @include generate-utility(".justify-content-between") {
-        justify-content: space-between;
-    }
-
-    @include generate-utility(".justify-content-evenly") {
-        justify-content: space-evenly;
-    }
-
-    // Align Items
-    @include generate-utility((".align-items-top", ".align-items-start")) {
-        align-items: flex-start;
-    }
-
-    @include generate-utility((".align-items-middle", ".align-items-center")) {
-        align-items: center;
-    }
-
-    @include generate-utility((".align-items-bottom", ".align-items-end")) {
-        align-items: flex-end;
+            @each $classSuffix, $value in map.get($utilityOptions, values) {
+                .#{$className}-#{$classSuffix} {
+                    #{$propertyName}: $value;
+                }
+            }
+        }
     }
 }
