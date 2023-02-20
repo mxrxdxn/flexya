@@ -5,25 +5,51 @@
     @if map.get($options, min-width) > 0 {
         @include breakpoint-up($size) {
             @each $utility, $utilityOptions in $utilities {
-                $className: map.get($utilityOptions, class);
-                $propertyName: map.get($utilityOptions, property);
                 $prefix: map.get($options, prefix);
+                $properties: map.get($utilityOptions, property);
 
-                @each $classSuffix, $value in map.get($utilityOptions, values) {
+                @if type-of($properties) == "string" {
+                    $properties: append((), $properties);
+                }
+
+                $className: if(map-has-key($utilityOptions, class), map.get($utilityOptions, class), nth($properties, 1));
+
+                $values: map-get($utilityOptions, values);
+
+                @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+                    $values: zip($values, $values);
+                }
+
+                @each $classSuffix, $value in $values {
                     .#{$className}-#{$prefix}-#{$classSuffix} {
-                        #{$propertyName}: $value;
+                        @each $property in $properties {
+                            #{$property}: $value;
+                        }
                     }
                 }
             }
         }
     } @else {
         @each $utility, $utilityOptions in $utilities {
-            $className: map.get($utilityOptions, class);
-            $propertyName: map.get($utilityOptions, property);
+            $properties: map.get($utilityOptions, property);
 
-            @each $classSuffix, $value in map.get($utilityOptions, values) {
+            @if type-of($properties) == "string" {
+                $properties: append((), $properties);
+            }
+
+            $className: if(map-has-key($utilityOptions, class), map.get($utilityOptions, class), nth($properties, 1));
+
+            $values: map-get($utilityOptions, values);
+
+            @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+                $values: zip($values, $values);
+            }
+
+            @each $classSuffix, $value in $values {
                 .#{$className}-#{$classSuffix} {
-                    #{$propertyName}: $value;
+                    @each $property in $properties {
+                        #{$property}: $value;
+                    }
                 }
             }
         }
