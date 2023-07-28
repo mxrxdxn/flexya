@@ -102,7 +102,7 @@ argument is omitted, default styling will apply.
 ```
 Translates into:
 ```css
-@media (min-width: 1200px) and (hover: none) and (pointer: coarse)
+@media (min-width: 1200px) and (hover: none) and (pointer: coarse) {
     .row {
         color: red;
     }
