@@ -3,12 +3,22 @@
 @use "sass:math";
 
 // Styles in this mixin will only apply for the given breakpoint and above.
-@mixin breakpoint-up($name: "mobile") {
+@mixin breakpoint-up($name: "mobile", $mode: false) {
     $min: breakpoint-min($name);
 
     @if $min {
         @media (min-width: $min) {
-            @content;
+            @if $mode == "touch" {
+                @media (hover: none) and (pointer: coarse) {
+                    @content;
+                }
+            } @else if $mode == "notouch" {
+                @media (hover: hover) and (pointer: fine) {
+                    @content;
+                }
+            } @else {
+                @content;
+            }
         }
     } @else {
         @content;
@@ -16,12 +26,22 @@
 }
 
 // Styles in this mixin will only apply for the given breakpoint and below.
-@mixin breakpoint-down($name: "large-desktop") {
+@mixin breakpoint-down($name: "large-desktop", $mode: false) {
     $max: breakpoint-max($name);
 
     @if $max {
         @media (max-width: $max) {
-            @content;
+            @if $mode == "touch" {
+                @media (hover: none) and (pointer: coarse) {
+                    @content;
+                }
+            } @else if $mode == "notouch" {
+                @media (hover: hover) and (pointer: fine) {
+                    @content;
+                }
+            } @else {
+                @content;
+            }
         }
     } @else {
         @content;
@@ -29,41 +49,61 @@
 }
 
 // Styles in this mixin will only apply for the given breakpoint.
-@mixin breakpoint-only($name: "mobile") {
+@mixin breakpoint-only($name: "mobile", $mode: false) {
     $min:  breakpoint-min($name);
     $next: breakpoint-next($name);
     $max:  breakpoint-max($next);
 
     @if $min != null and $max != null {
         @media (min-width: $min) and (max-width: $max) {
-            @content;
+            @if $mode == "touch" {
+                @media (hover: none) and (pointer: coarse) {
+                    @content;
+                }
+            } @else if $mode == "notouch" {
+                @media (hover: hover) and (pointer: fine) {
+                    @content;
+                }
+            } @else {
+                @content;
+            }
         }
     } @else if $max == null {
-        @include breakpoint-up($name) {
+        @include breakpoint-up($name, $mode) {
             @content;
         }
     } @else if $min == null {
-        @include breakpoint-down($next) {
+        @include breakpoint-down($next, $mode) {
             @content;
         }
     }
 }
 
 // Styles in this mixin will only apply between the given lower and upper breakpoints.
-@mixin breakpoint-between($lower, $upper) {
+@mixin breakpoint-between($lower, $upper, $mode: false) {
     $min: breakpoint-min($lower);
     $max: breakpoint-max($upper);
 
     @if $min != null and $max != null {
         @media (min-width: $min) and (max-width: $max) {
-            @content;
+            @if $mode == "touch" {
+                @media (hover: none) and (pointer: coarse) {
+                    @content;
+                }
+            } @else if $mode == "notouch" {
+                @media (hover: hover) and (pointer: fine) {
+                    @content;
+                }
+            } @else {
+                @content;
+            }
         }
     } @else if $max == null {
-        @include breakpoint-up($lower) {
+        @include breakpoint-up($lower, $mode) {
             @content;
         }
     } @else if $min == null {
-        @include breakpoint-down($upper) {
+        @include breakpoint-down($upper, $mode) {
             @content;
         }
     }
