@@ -130,16 +130,24 @@
     }
 
     // Sized columns
-    @for $i from 1 through $columnCount {
+    @for $i from 0 through $columnCount {
         $width: math.div(100%, $columnCount) * $i;
 
-        .#{$columnClass}#{$prefix}-#{$i} {
-            flex:  0 0 auto;
-            width: $width;
+        @if $i > 0 {
+            .#{$columnClass}#{$prefix}-#{$i} {
+                flex:  0 0 auto;
+                width: $width;
+            }
         }
 
-        .#{$offsetClass}#{$prefix}-#{$i} {
-            margin-left: $width;
+        @if $i == 0 {
+            .#{$offsetClass}#{$prefix}-#{$i} {
+                margin-left: unset;
+            }
+        } @else {
+            .#{$offsetClass}#{$prefix}-#{$i} {
+                margin-left: $width;
+            }
         }
     }
 }
