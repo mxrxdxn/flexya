@@ -1,34 +1,5 @@
 @use "sass:map";
 
 .row {
-    position:       relative;
-    display:        flex;
-    flex-direction: row;
-    flex-wrap:      wrap;
-
-    @if $enableGutters {
-        margin: {
-            left:  calc(-.5 * $gutterWidth);
-            right: calc(-.5 * $gutterWidth);
-        }
-
-        > * {
-            padding: {
-                left:  calc(.5 * $gutterWidth);
-                right: calc(.5 * $gutterWidth);
-            }
-        }
-    }
-
-    // Columns
-    @each $size, $options in $breakpoints {
-        @if map.get($options, "min-width") == 0 {
-            @include generate-column-classes($options)
-        } @else {
-            // Include the breakpoint check
-            @include breakpoint-up($size) {
-                @include generate-column-classes($options)
-            }
-        }
-    }
+    @include flex-row();
 }

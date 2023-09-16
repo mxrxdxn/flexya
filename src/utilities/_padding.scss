@@ -1,0 +1,37 @@
+// ============================================================================
+// Flexya Utilities - Padding
+// ============================================================================
+
+@use "sass:map";
+
+$utilities: map.merge($utilities, (
+    padding: (
+        property: padding,
+        class: p,
+        values: $spacers,
+    ),
+
+    padding-left: (
+        property: padding-left,
+        class: pl,
+        values: $spacers,
+    ),
+
+    padding-right: (
+        property: padding-right,
+        class: pr,
+        values: $spacers,
+    ),
+
+    padding-top: (
+        property: padding-top,
+        class: pt,
+        values: $spacers,
+    ),
+
+    padding-bottom: (
+        property: padding-bottom,
+        class: pb,
+        values: $spacers,
+    ),
+));

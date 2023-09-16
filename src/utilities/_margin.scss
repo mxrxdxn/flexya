@@ -1,0 +1,52 @@
+// ============================================================================
+// Flexya Utilities - Margin
+// ============================================================================
+
+@use "sass:map";
+
+$utilities: map.merge($utilities, (
+    margin: (
+        property: margin,
+        class: m,
+        values: map.merge(
+            (auto: auto),
+            $spacers,
+        ),
+    ),
+
+    margin-left: (
+        property: margin-left,
+        class: ml,
+        values: map.merge(
+                (auto: auto),
+                $spacers,
+        ),
+    ),
+
+    margin-right: (
+        property: margin-right,
+        class: mr,
+        values: map.merge(
+            (auto: auto),
+            $spacers,
+        ),
+    ),
+
+    margin-top: (
+        property: margin-top,
+        class: mt,
+        values: map.merge(
+            (auto: auto),
+            $spacers,
+        ),
+    ),
+
+    margin-bottom: (
+        property: margin-bottom,
+        class: mb,
+        values: map.merge(
+            (auto: auto),
+            $spacers,
+        ),
+    ),
+));

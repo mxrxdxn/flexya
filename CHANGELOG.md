@@ -1,4 +1,10 @@
 # Changelog
+## 1.9.0
+* Gutters can now be enabled or disabled on a per-row basis.
+* New mixins for flex grid row and CSS grid row.
+* Adds new utility files for commonly-used CSS properties (opt-in).
+* Adds new mixins for increased usability.
+
 ## 1.8.2
 * Adds `offset-0` utilities.
 

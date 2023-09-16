@@ -1,0 +1,19 @@
+// ============================================================================
+// Flexya Utilities - Align Items
+// ============================================================================
+
+@use "sass:map";
+
+$utilities: map.merge($utilities, (
+    align-items: (
+        property: align-items,
+        class: align-items,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            baseline: baseline,
+            stretch: stretch,
+        ),
+    ),
+));

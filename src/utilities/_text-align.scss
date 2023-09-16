@@ -1,0 +1,13 @@
+// ============================================================================
+// Flexya Utilities - Text Align
+// ============================================================================
+
+@use "sass:map";
+
+$utilities: map.merge($utilities, (
+    text-align: (
+        property: text-align,
+        class: text,
+        values: left right center justify initial inherit start end,
+    ),
+));

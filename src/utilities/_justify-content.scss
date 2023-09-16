@@ -1,0 +1,20 @@
+// ============================================================================
+// Flexya Utilities - Justify Content
+// ============================================================================
+
+@use "sass:map";
+
+$utilities: map.merge($utilities, (
+    justify-content: (
+        property: justify-content,
+        class: justify-content,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            between: space-between,
+            around: space-around,
+            evenly: space-evenly
+        ),
+    ),
+));

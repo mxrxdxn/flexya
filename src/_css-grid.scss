@@ -2,19 +2,6 @@
 
 @if $enableGrid {
     .grid {
-        display:               grid;
-        grid-template-columns: repeat($columnCount, 1fr);
-
-        // Columns
-        @each $size, $options in $breakpoints {
-            @if map.get($options, "min-width") == 0 {
-                @include generate-grid-column-classes($options)
-            } @else {
-                // Include the breakpoint check
-                @include breakpoint-up($size) {
-                    @include generate-grid-column-classes($options)
-                }
-            }
-        }
+        @include grid-row();
     }
 }
