@@ -9,5 +9,6 @@ $utilities: map.merge($utilities, (
         property: text-align,
         class: text,
         values: left right center justify initial inherit start end,
+        important: true,
     ),
 ));

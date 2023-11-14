@@ -23,5 +23,6 @@ $utilities: map.merge($utilities, (
             90: 90vw,
             100: 100vw,
         ),
+        important: true,
     ),
 ));

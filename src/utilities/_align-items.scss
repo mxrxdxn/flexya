@@ -15,5 +15,6 @@ $utilities: map.merge($utilities, (
             baseline: baseline,
             stretch: stretch,
         ),
+        important: true,
     ),
 ));

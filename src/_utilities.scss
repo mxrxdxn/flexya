@@ -5,8 +5,14 @@
     @if map.get($options, min-width) > 0 {
         @include breakpoint-up($size) {
             @each $utility, $utilityOptions in $utilities {
-                $prefix: map.get($options, prefix);
-                $properties: map.get($utilityOptions, property);
+                $prefix:          map.get($options, prefix);
+                $properties:      map.get($utilityOptions, property);
+                $importantOption: map.get($utilityOptions, important);
+                $important:       null;
+
+                @if $importantOption == true {
+                    $important: !important;
+                }
 
                 @if type-of($properties) == "string" {
                     $properties: append((), $properties);
@@ -23,7 +29,7 @@
                 @each $classSuffix, $value in $values {
                     .#{$className}-#{$prefix}-#{$classSuffix} {
                         @each $property in $properties {
-                            #{$property}: $value;
+                            #{$property}: $value$important;
                         }
                     }
                 }

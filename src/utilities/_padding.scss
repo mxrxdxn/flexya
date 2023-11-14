@@ -9,29 +9,34 @@ $utilities: map.merge($utilities, (
         property: padding,
         class: p,
         values: $spacers,
+        important: true,
     ),
 
     padding-left: (
         property: padding-left,
         class: pl,
         values: $spacers,
+        important: true,
     ),
 
     padding-right: (
         property: padding-right,
         class: pr,
         values: $spacers,
+        important: true,
     ),
 
     padding-top: (
         property: padding-top,
         class: pt,
         values: $spacers,
+        important: true,
     ),
 
     padding-bottom: (
         property: padding-bottom,
         class: pb,
         values: $spacers,
+        important: true,
     ),
 ));

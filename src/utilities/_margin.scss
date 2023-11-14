@@ -12,6 +12,7 @@ $utilities: map.merge($utilities, (
             (auto: auto),
             $spacers,
         ),
+        important: true,
     ),
 
     margin-left: (
@@ -21,6 +22,7 @@ $utilities: map.merge($utilities, (
                 (auto: auto),
                 $spacers,
         ),
+        important: true,
     ),
 
     margin-right: (
@@ -30,6 +32,7 @@ $utilities: map.merge($utilities, (
             (auto: auto),
             $spacers,
         ),
+        important: true,
     ),
 
     margin-top: (
@@ -39,6 +42,7 @@ $utilities: map.merge($utilities, (
             (auto: auto),
             $spacers,
         ),
+        important: true,
     ),
 
     margin-bottom: (
@@ -48,5 +52,6 @@ $utilities: map.merge($utilities, (
             (auto: auto),
             $spacers,
         ),
+        important: true,
     ),
 ));
