@@ -37,7 +37,13 @@
         }
     } @else {
         @each $utility, $utilityOptions in $utilities {
-            $properties: map.get($utilityOptions, property);
+            $properties:      map.get($utilityOptions, property);
+            $importantOption: map.get($utilityOptions, important);
+            $important:       null;
+
+            @if $importantOption == true {
+                $important: !important;
+            }
 
             @if type-of($properties) == "string" {
                 $properties: append((), $properties);
@@ -54,7 +60,7 @@
             @each $classSuffix, $value in $values {
                 .#{$className}-#{$classSuffix} {
                     @each $property in $properties {
-                        #{$property}: $value;
+                        #{$property}: $value$important;
                     }
                 }
             }
