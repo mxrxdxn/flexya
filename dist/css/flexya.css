@@ -89,7 +89,7 @@
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
-.row > *[class*=col-] {
+.row > *[class*=col] {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
@@ -97,7 +97,7 @@
   margin-left: 0;
   margin-right: 0;
 }
-.row.no-col-gutters > *[class*=col-] {
+.row.no-col-gutters > *[class*=col] {
   padding-left: 0;
   padding-right: 0;
 }

@@ -274,7 +274,7 @@
         right: calc(-.5 * $gutterWidth);
     }
 
-    > *[class*='col-'] {
+    > *[class*='#{$columnClass}'] {
         padding: {
             left:  calc(.5 * $gutterWidth);
             right: calc(.5 * $gutterWidth);
@@ -289,7 +289,7 @@
     }
 
     &.no-col-gutters {
-        > *[class*='col-'] {
+        > *[class*='#{$columnClass}'] {
             padding: {
                 left:  0;
                 right: 0;
@@ -321,7 +321,7 @@
         right: calc(-.5 * $gutterWidth);
     }
 
-    > *[class*='col-'] {
+    > *[class*='#{$columnClass}'] {
         padding: {
             left:  calc(.5 * $gutterWidth);
             right: calc(.5 * $gutterWidth);
@@ -336,7 +336,7 @@
     }
 
     &.no-col-gutters {
-        > *[class*='col-'] {
+        > *[class*='#{$columnClass}'] {
             padding: {
                 left:  0;
                 right: 0;
